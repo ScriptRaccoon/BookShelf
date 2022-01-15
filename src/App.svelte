@@ -44,7 +44,7 @@
             author: "Author...",
             title: "Title...",
             year: "Year...",
-            description: "Description...",
+            notes: "Notes...",
             read: false,
             coverURL: "",
             open: true,

@@ -41,9 +41,9 @@
     </p>
 
     <p
-        class="description"
+        class="notes"
         contenteditable="true"
-        bind:innerHTML={book.description}
+        bind:innerHTML={book.notes}
     />
 </div>
 
@@ -95,7 +95,7 @@
         font-size: 14px;
     }
 
-    .description {
+    .notes {
         margin: 20px 0px 10px 0px;
         padding: 4px;
         border-radius: 4px;
