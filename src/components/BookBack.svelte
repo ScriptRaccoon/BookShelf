@@ -31,7 +31,7 @@
             bind:checked={book.read}
             id={`read${book.id}`}
         />
-        <label for={`read${book.id}`}>
+        <label for={`read${book.id}`} class:read={book.read}>
             {#if book.read}
                 Read
             {:else}
@@ -69,12 +69,16 @@
         display: none;
     }
     input[type="checkbox"] + label {
-        background-color: teal;
+        background-color: brown;
         padding: 4px 6px;
         border-radius: 3px;
         font-size: 14px;
         color: white;
         cursor: pointer;
+    }
+
+    input[type="checkbox"] + label.read {
+        background-color: teal;
     }
 
     .author-year {
