@@ -18,7 +18,7 @@
         color: white;
         position: sticky;
         top: 0;
-        z-index: 20;
+        z-index: 50;
         box-shadow: 0px 0px 10px #0008;
     }
     h1 {

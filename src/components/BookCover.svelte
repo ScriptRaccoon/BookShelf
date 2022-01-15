@@ -35,7 +35,7 @@
         display: block;
     }
     .cover {
-        transition: all 500ms ease-out;
+        transition: all 400ms ease-out;
         transform-origin: left;
         position: absolute;
         inset: 0;
@@ -43,11 +43,16 @@
         border-radius: 5px;
         overflow: hidden;
         background-color: #eee;
+        z-index: 20;
+    }
+
+    .cover:not(.open):hover {
+        transform: rotateY(-8deg);
     }
 
     .cover.open {
         transform: rotateY(-120deg);
         box-shadow: 0px 0px 5px #000;
-        z-index: 1000;
+        filter: brightness(0.6);
     }
 </style>

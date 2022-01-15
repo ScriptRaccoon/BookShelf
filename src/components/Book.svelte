@@ -3,6 +3,7 @@
     import BookCover from "./BookCover.svelte";
     import BookBack from "./BookBack.svelte";
     import BookMenu from "./BookMenu.svelte";
+    import CoverForm from "./CoverForm.svelte";
     export let height = 0;
     function handleHeight(e) {
         height = e.detail;
@@ -11,14 +12,11 @@
     function changeCoverURL() {
         showURL = !showURL;
     }
-    function handleSubmit(e) {
-        e.preventDefault();
-        showURL = false;
-    }
+
     let open = false;
 </script>
 
-<div class="book" style="height: {height}px">
+<div class="book" class:open style="height: {height}px">
     <BookMenu
         bind:book
         on:delete
@@ -28,9 +26,7 @@
     <BookBack bind:book />
     <BookCover bind:open bind:book on:height={handleHeight} />
     {#if showURL}
-        <form on:submit={handleSubmit}>
-            <input type="text" bind:value={book.coverURL} />
-        </form>
+        <CoverForm bind:book bind:showURL />
     {/if}
 </div>
 
@@ -40,22 +36,10 @@
         border-radius: 5px;
         box-shadow: 0px 0px 7px #0009;
         position: relative;
-        perspective: 1000px;
+        perspective: 1500px;
         transform-style: preserve-3d;
     }
-    form {
-        position: absolute;
-        inset: 0;
-        background: #000c;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 20px;
-    }
-    input {
-        width: 100%;
-        background: white;
-        padding: 5px;
+    .book.open {
+        z-index: 30;
     }
 </style>
