@@ -7,7 +7,9 @@
     let error = false;
     let src = "";
     $: {
-        if (book.coverURL) error = false;
+        if (book.coverURL) {
+            error = false;
+        }
     }
     $: {
         src = error ? "./assets/img/no-image.png" : book.coverURL;
@@ -35,8 +37,6 @@
         display: block;
     }
     .cover {
-        transition: all 400ms ease-out;
-        transform-origin: left;
         position: absolute;
         inset: 0;
         box-shadow: 0px 0px 7px #0009;
@@ -44,14 +44,18 @@
         overflow: hidden;
         background-color: #eee;
         z-index: 20;
+        --rotation: 0deg;
+        transform: rotateY(var(--rotation));
+        transition: all 400ms ease-out;
+        transform-origin: left;
     }
 
-    .cover:not(.open):hover {
-        transform: rotateY(-8deg);
+    .cover:hover {
+        --rotation: -10deg;
     }
 
     .cover.open {
-        transform: rotateY(-120deg);
+        --rotation: -120deg;
         box-shadow: 0px 0px 5px #000;
         filter: brightness(0.6);
     }
