@@ -1,4 +1,5 @@
 <script>
+    import { fly } from "svelte/transition";
     export let book = {};
     let showURL = false;
     import BookCover from "./BookCover.svelte";
@@ -11,10 +12,10 @@
 </script>
 
 <div
-    id={book.id}
     class="book"
     class:open={book.open}
     style="aspect-ratio: {imageDimension.width} / {imageDimension.height}"
+    in:fly={{ y: -100 }}
 >
     <BookBack bind:book bind:showURL on:delete />
     <BookCover bind:book on:imageDimension={setAspectRatio} />
