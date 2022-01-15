@@ -16,12 +16,6 @@
 
 <menu>
     <button
-        title="Close book"
-        on:click={() => (book.open = !book.open)}
-    >
-        <i class="fas fa-book" />
-    </button>
-    <button
         title="Change Cover URL"
         on:click={() => (showURL = !showURL)}
     >
@@ -30,6 +24,13 @@
 
     <button title="Delete book" on:click={handleDelete}>
         <i class="far fa-trash-alt" />
+    </button>
+
+    <button
+        title="Close book"
+        on:click={() => (book.open = !book.open)}
+    >
+        <i class="fas fa-book" />
     </button>
 </menu>
 
