@@ -1,13 +1,10 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
+    import Menu from "./Menu.svelte";
 </script>
 
 <header>
     <h1>BookShelf</h1>
-    <button title="Add book" on:click={() => dispatch("addBook")}
-        >+</button
-    >
+    <Menu on:addBook on:deleteAll />
 </header>
 
 <style>
@@ -25,18 +22,6 @@
         font-size: 36px;
         font-family: "Times New Roman", Times, serif;
         font-weight: 300;
-    }
-    button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 10px;
-        font-weight: bold;
-        font-size: 30px;
-        transition: transform 50ms linear;
-    }
-    button:focus-visible,
-    button:hover {
-        transform: translateY(-50%) scale(1.4);
+        text-shadow: 1px 1px 5px #000a;
     }
 </style>

@@ -27,6 +27,17 @@
         return id;
     }
 
+    function deleteAll() {
+        if (
+            window.confirm(
+                "This will delete all your books from this app. " +
+                    "This cannot be undone! Are you sure?"
+            )
+        ) {
+            books = [];
+        }
+    }
+
     function addBook() {
         const book = {
             id: generateId(),
@@ -42,7 +53,7 @@
     }
 </script>
 
-<Header on:addBook={addBook} />
+<Header on:addBook={addBook} on:deleteAll={deleteAll} />
 
 <BookList on:delete={handleDelete} bind:books />
 
