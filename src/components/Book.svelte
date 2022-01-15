@@ -28,6 +28,7 @@
         position: relative;
         perspective: 1500px;
         transform-style: preserve-3d;
+        width: 300px;
     }
     .book.open {
         z-index: 30;

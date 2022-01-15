@@ -13,22 +13,12 @@
 
 <style>
     main {
-        --columns: 3;
-        max-width: 900px;
+        max-width: 1000px;
         margin: 10px auto;
-        display: grid;
-        grid-template-columns: repeat(var(--columns), 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
         padding: 20px;
-    }
-    @media (max-width: 900px) {
-        main {
-            --columns: 2;
-        }
-    }
-    @media (max-width: 500px) {
-        main {
-            --columns: 1;
-        }
     }
 </style>
