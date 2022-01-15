@@ -3,6 +3,7 @@
     import Footer from "./components/Footer.svelte";
     import BookList from "./components/BookList.svelte";
     import { debounce, scrollToTop } from "./utils.js";
+    let newId = null;
 
     let books = JSON.parse(localStorage.getItem("books")) || [];
 
@@ -39,15 +40,15 @@
     }
 
     function addBook() {
+        newId = generateId();
         const book = {
-            id: generateId(),
+            id: newId,
             author: "Author...",
             title: "Title...",
             year: "Year...",
             description: "Description...",
             read: false,
             coverURL: "",
-            new: true,
         };
         books = [book, ...books];
         scrollToTop();
@@ -56,6 +57,6 @@
 
 <Header on:addBook={addBook} on:deleteAll={deleteAll} />
 
-<BookList on:delete={handleDelete} bind:books />
+<BookList on:delete={handleDelete} bind:newId bind:books />
 
 <Footer />

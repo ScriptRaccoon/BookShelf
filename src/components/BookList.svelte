@@ -1,11 +1,12 @@
 <script>
     import Book from "./Book.svelte";
     export let books = [];
+    export let newId = null;
 </script>
 
 <main>
     {#each books as book}
-        <Book on:delete bind:book />
+        <Book on:delete bind:newId bind:book />
     {:else}
         <span>No books yet</span>
     {/each}
