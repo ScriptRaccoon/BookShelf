@@ -2,7 +2,6 @@
     export let book = {};
     let showURL = false;
     let open = false;
-    export let newId = null;
     import BookCover from "./BookCover.svelte";
     import BookBack from "./BookBack.svelte";
     import CoverForm from "./CoverForm.svelte";
@@ -10,13 +9,6 @@
     let height = 0;
     function handleHeight(e) {
         height = e.detail;
-    }
-
-    $: {
-        if (newId == book.id) {
-            open = true;
-            newId = null;
-        }
     }
 </script>
 

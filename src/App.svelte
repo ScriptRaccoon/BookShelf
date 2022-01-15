@@ -3,7 +3,6 @@
     import Footer from "./components/Footer.svelte";
     import BookList from "./components/BookList.svelte";
     import { debounce, scrollToTop } from "./utils.js";
-    let newId = null;
 
     let books = JSON.parse(localStorage.getItem("books")) || [];
 
@@ -40,9 +39,8 @@
     }
 
     function addBook() {
-        newId = generateId();
         const book = {
-            id: newId,
+            id: generateId(),
             author: "Author...",
             title: "Title...",
             year: "Year...",
@@ -57,6 +55,6 @@
 
 <Header on:addBook={addBook} on:deleteAll={deleteAll} />
 
-<BookList on:delete={handleDelete} bind:newId bind:books />
+<BookList on:delete={handleDelete} bind:books />
 
 <Footer />
