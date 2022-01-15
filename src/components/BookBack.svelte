@@ -50,13 +50,13 @@
 
 <style>
     .back {
-        padding: 30px 10px 10px 10px;
+        padding: 10px;
         overflow: auto;
         height: 100%;
     }
     .title {
         font-family: Georgia, "Times New Roman", Times, serif;
-        margin-bottom: 10px;
+        margin: 10px 0px;
     }
     *[contenteditable="true"] {
         border-bottom: 1px solid transparent;

@@ -16,8 +16,8 @@
 </script>
 
 <menu>
-    <button title="Open/Close book" on:click={() => (open = !open)}>
-        <i class="fas fa-book-open" />
+    <button title="Close book" on:click={() => (open = false)}>
+        <i class="fas fa-book" />
     </button>
     <button
         title="Change Cover URL"
