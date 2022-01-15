@@ -1,11 +1,9 @@
 <script>
     export let book = {};
     let showURL = false;
-    let open = false;
     import BookCover from "./BookCover.svelte";
     import BookBack from "./BookBack.svelte";
     import CoverForm from "./CoverForm.svelte";
-
     let imageDimension = { width: 1, height: 1 };
     function setAspectRatio(e) {
         imageDimension = e.detail;
@@ -13,16 +11,13 @@
 </script>
 
 <div
+    id={book.id}
     class="book"
-    class:open
+    class:open={book.open}
     style="aspect-ratio: {imageDimension.width} / {imageDimension.height}"
 >
-    <BookBack bind:book bind:showURL bind:open on:delete />
-    <BookCover
-        bind:book
-        bind:open
-        on:imageDimension={setAspectRatio}
-    />
+    <BookBack bind:book bind:showURL on:delete />
+    <BookCover bind:book on:imageDimension={setAspectRatio} />
     {#if showURL}
         <CoverForm bind:book bind:showURL />
     {/if}

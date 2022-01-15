@@ -1,7 +1,6 @@
 <script>
     export let book = {};
     export let showURL = false;
-    export let open = false;
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     function handleDelete() {
@@ -16,7 +15,10 @@
 </script>
 
 <menu>
-    <button title="Close book" on:click={() => (open = false)}>
+    <button
+        title="Close book"
+        on:click={() => (book.open = !book.open)}
+    >
         <i class="fas fa-book" />
     </button>
     <button

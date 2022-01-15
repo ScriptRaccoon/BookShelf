@@ -4,7 +4,7 @@
 </script>
 
 <main>
-    {#each books as book}
+    {#each books as book (book.id)}
         <Book on:delete bind:book />
     {:else}
         <span>No books yet</span>

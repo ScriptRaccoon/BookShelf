@@ -1,6 +1,5 @@
 <script>
     export let book = {};
-    export let open = false;
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     let imageElement = null;
@@ -16,11 +15,11 @@
     }
 </script>
 
-<div class="cover" class:open>
+<div class="cover" class:open={book.open}>
     <img
         {src}
         alt="cover"
-        title={open ? "Close book" : "Open book"}
+        title={book.open ? "Close book" : "Open book"}
         on:error={() => {
             error = true;
         }}
@@ -30,7 +29,7 @@
                 width: imageElement.width,
                 height: imageElement.height,
             })}
-        on:click={() => (open = !open)}
+        on:click={() => (book.open = !book.open)}
     />
 </div>
 

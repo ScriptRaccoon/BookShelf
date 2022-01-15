@@ -1,12 +1,11 @@
 <script>
     import BookMenu from "./BookMenu.svelte";
     export let book = {};
-    export let open = false;
     export let showURL = false;
 </script>
 
 <div class="back">
-    <BookMenu bind:book bind:showURL bind:open on:delete />
+    <BookMenu bind:book bind:showURL on:delete />
     <h2
         class="title"
         contenteditable="true"
