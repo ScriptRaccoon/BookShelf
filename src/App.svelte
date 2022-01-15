@@ -47,6 +47,7 @@
             description: "Description...",
             read: false,
             coverURL: "",
+            new: true,
         };
         books = [book, ...books];
         scrollToTop();

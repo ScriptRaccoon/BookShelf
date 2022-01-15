@@ -9,6 +9,14 @@
     }
     let showURL = false;
     let open = false;
+    $: {
+        if (book.new) {
+            setTimeout(() => {
+                open = true;
+                delete book.new;
+            }, 300);
+        }
+    }
 </script>
 
 <div class="book" class:open style="height: {height}px">
