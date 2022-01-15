@@ -14,9 +14,6 @@
     $: {
         src = error ? "./assets/img/no-image.png" : book.coverURL;
     }
-    window.addEventListener("resize", () =>
-        dispatch("height", imageElement.height)
-    );
 </script>
 
 <div class="cover" class:open>
@@ -28,7 +25,11 @@
             error = true;
         }}
         bind:this={imageElement}
-        on:load={() => dispatch("height", imageElement.height)}
+        on:load={() =>
+            dispatch("imageDimension", {
+                width: imageElement.width,
+                height: imageElement.height,
+            })}
         on:click={() => (open = !open)}
     />
 </div>

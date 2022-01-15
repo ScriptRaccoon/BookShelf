@@ -6,15 +6,23 @@
     import BookBack from "./BookBack.svelte";
     import CoverForm from "./CoverForm.svelte";
 
-    let height = 0;
-    function handleHeight(e) {
-        height = e.detail;
+    let imageDimension = { width: 1, height: 1 };
+    function setAspectRatio(e) {
+        imageDimension = e.detail;
     }
 </script>
 
-<div class="book" class:open style="height: {height}px">
+<div
+    class="book"
+    class:open
+    style="aspect-ratio: {imageDimension.width} / {imageDimension.height}"
+>
     <BookBack bind:book bind:showURL bind:open on:delete />
-    <BookCover bind:book bind:open on:height={handleHeight} />
+    <BookCover
+        bind:book
+        bind:open
+        on:imageDimension={setAspectRatio}
+    />
     {#if showURL}
         <CoverForm bind:book bind:showURL />
     {/if}
@@ -29,6 +37,7 @@
         perspective: 1500px;
         transform-style: preserve-3d;
         width: 300px;
+        max-width: 80vw;
     }
     .book.open {
         z-index: 30;
