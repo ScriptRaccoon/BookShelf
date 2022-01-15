@@ -14,6 +14,9 @@
     $: {
         src = error ? "./assets/img/no-image.png" : book.coverURL;
     }
+    window.addEventListener("resize", () =>
+        dispatch("height", imageElement.height)
+    );
 </script>
 
 <div class="cover" class:open>
