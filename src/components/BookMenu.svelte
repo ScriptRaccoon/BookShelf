@@ -1,5 +1,7 @@
 <script>
     export let book;
+    export let showURL;
+    export let open;
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     function handleDelete() {
@@ -14,12 +16,12 @@
 </script>
 
 <menu>
-    <button title="Open/Close book" on:click={() => dispatch("open")}>
+    <button title="Open/Close book" on:click={() => (open = !open)}>
         <i class="fas fa-book-open" />
     </button>
     <button
         title="Change Cover URL"
-        on:click={() => dispatch("changeCoverURL")}
+        on:click={() => (showURL = !showURL)}
     >
         <i class="far fa-image" />
     </button>
@@ -32,22 +34,16 @@
 <style>
     button {
         margin: 0px 5px;
-        color: white;
-        text-shadow: 0px 0px 4px #000;
-        transition: transform 50ms linear;
+        color: #888;
+        transition: color 50ms linear;
     }
 
     button:focus-visible,
     button:hover {
-        transform: scale(1.4);
+        color: #222;
     }
 
     menu {
         text-align: right;
-        margin-bottom: 5px;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        z-index: 10;
     }
 </style>
