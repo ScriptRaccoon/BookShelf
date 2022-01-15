@@ -1,6 +1,6 @@
 <script>
-    export let book;
-    export let showURL;
+    export let book = {};
+    export let showURL = true;
     function handleSubmit(e) {
         e.preventDefault();
         showURL = false;

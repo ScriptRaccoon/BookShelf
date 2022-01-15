@@ -1,7 +1,7 @@
 <script>
-    export let book;
-    export let showURL;
-    export let open;
+    export let book = {};
+    export let showURL = false;
+    export let open = false;
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     function handleDelete() {

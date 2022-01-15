@@ -1,16 +1,17 @@
 <script>
-    export let book;
+    export let book = {};
+    let showURL = false;
+    let open = false;
     import BookCover from "./BookCover.svelte";
     import BookBack from "./BookBack.svelte";
     import CoverForm from "./CoverForm.svelte";
-    export let height = 0;
+
+    let height = 0;
     function handleHeight(e) {
         height = e.detail;
     }
-    let showURL = false;
-    let open = false;
     $: {
-        if (book.new) {
+        if (book.new == true) {
             setTimeout(() => {
                 open = true;
                 delete book.new;

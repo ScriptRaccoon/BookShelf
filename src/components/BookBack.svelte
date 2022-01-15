@@ -1,8 +1,8 @@
 <script>
     import BookMenu from "./BookMenu.svelte";
-    export let book;
-    export let open;
-    export let showURL;
+    export let book = {};
+    export let open = false;
+    export let showURL = false;
 </script>
 
 <div class="back">
