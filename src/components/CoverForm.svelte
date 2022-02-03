@@ -8,7 +8,8 @@
 </script>
 
 <form on:submit={handleSubmit}>
-    <input type="text" bind:value={book.coverURL} />
+    <label for="coverInput">Paste Cover URL</label>
+    <input id="coverInput" type="text" bind:value={book.coverURL} />
 </form>
 
 <style>
@@ -20,10 +21,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
     input {
         width: 100%;
         background: white;
         padding: 5px;
+    }
+    label {
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
     }
 </style>
