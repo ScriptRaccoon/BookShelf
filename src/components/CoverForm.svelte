@@ -32,5 +32,6 @@
         color: white;
         font-weight: bold;
         margin-bottom: 10px;
+        text-shadow: 0px 0px 4px #000;
     }
 </style>
